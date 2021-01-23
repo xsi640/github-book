@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id=app>
+        <button v-on:click="counter += 1">Add {{counter}}</button>
+        <button @click="greet('nihao', $event)">Greet</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            },
+            methods: {
+                greet: function (name, e) {
+                    alert(name +' counter:' + this.counter);
+                    console.log(e);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

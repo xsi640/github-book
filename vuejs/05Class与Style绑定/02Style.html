@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id=app>
+        <div v-bind:style="{color: activeColor, fontSize: fontSize + 'px'}">xxxx</div>
+        <div :style="styleObject">yyyyy</div>
+        <div :style="[a, b]">zzzzzzzz</div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                activeColor: '#333',
+                fontSize: 22,
+                styleObject: {
+                    color: 'red',
+                    fontSize: '13px'
+                },
+                a: {
+                    color: 'yellow',
+                    fontSize: '23px'
+                },
+                b: {
+                    color: 'green',
+                    fontsize: '25px'
+                }
+            }
+        })
+    </script>
+    <style>
+    </style>
+</body>
+
+</html>
