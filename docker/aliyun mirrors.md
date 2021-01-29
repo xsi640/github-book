@@ -6,7 +6,7 @@
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
-  "registry-mirrors": ["https://ix32l9fp.mirror.aliyuncs.com"]
+  "registry-mirrors": ["https://ly7al5yg.mirror.aliyuncs.com"]
 }
 EOF
 sudo systemctl daemon-reload
@@ -17,7 +17,7 @@ sudo systemctl restart docker
 针对安装了Docker Toolbox的用户，您可以参考以下配置步骤：
 创建一台安装有Docker环境的Linux虚拟机，指定机器名称为default，同时配置Docker加速器地址。
 ```
-docker-machine create --engine-registry-mirror=https://ix32l9fp.mirror.aliyuncs.com -d virtualbox default
+docker-machine create --engine-registry-mirror=https://ly7al5yg.mirror.aliyuncs.com -d virtualbox default
 ```
 查看机器的环境配置，并配置到本地，并通过Docker客户端访问Docker服务。
 ```
@@ -34,7 +34,7 @@ https://ix32l9fp.mirror.aliyuncs.com加到"registry-mirrors"的数组里，点�
 针对安装了Docker Toolbox的用户，您可以参考以下配置步骤：
 创建一台安装有Docker环境的Linux虚拟机，指定机器名称为default，同时配置Docker加速器地址。
 ```
-docker-machine create --engine-registry-mirror=https://ix32l9fp.mirror.aliyuncs.com -d virtualbox default
+docker-machine create --engine-registry-mirror=https://ly7al5yg.mirror.aliyuncs.com -d virtualbox default
 ```
 查看机器的环境配置，并配置到本地，并通过Docker客户端访问Docker服务。
 ```
@@ -46,7 +46,7 @@ docker info
 在系统右下角托盘图标内右键菜单选择 Settings，打开配置窗口后左侧导航菜单选择 Docker Daemon。编辑窗口内的JSON串，填写下方加速器地址：
 ```
 {
-  "registry-mirrors": ["https://ix32l9fp.mirror.aliyuncs.com"]
+  "registry-mirrors": ["https://ly7al5yg.mirror.aliyuncs.com"]
 }
 ```
 编辑完成后点击 Apply 保存按钮，等待Docker重启并应用配置的镜像加速器。
@@ -54,6 +54,6 @@ docker info
 注意
 Docker for Windows 和 Docker Toolbox互不兼容，如果同时安装两者的话，需要使用hyperv的参数启动。
 ```
-docker-machine create --engine-registry-mirror=https://ix32l9fp.mirror.aliyuncs.com -d hyperv default
+docker-machine create --engine-registry-mirror=https://ly7al5yg.mirror.aliyuncs.com -d hyperv default
 ```
 Docker for Windows 有两种运行模式，一种运行Windows相关容器，一种运行传统的Linux容器。同一时间只能选择一种模式运行。
