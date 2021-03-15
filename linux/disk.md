@@ -37,6 +37,7 @@ vi /etc/fstab
 ```
 UUID=1e9975f2-74da-4386-b9bd-42ef59a44a86 /mnt/disk1 ext4 defaults 0 2
 UUID=bc655648-a0cf-9746-a09d-4bce7311e8fd /mnt/disk2 ext4 defaults 0 2
+UUID=5e58ff83-07c0-9f48-812c-4799821808af /mnt/disk3 ext4 defaults 0 2
 ```
 
 

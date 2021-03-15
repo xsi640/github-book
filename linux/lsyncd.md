@@ -1,24 +1,25 @@
 1. install
 apt-get install lsyncd
 2. 配置
-/etc/lsyncd.conf
+/etc/lsyncd/lsyncd.conf.lua
+
 settings {
-    logfile     = "/var/log/lsyncd/lsyncd.log"
-    statusFile  = "/var/log/lsyncd/lsyncd.status"
-    inotifyMode = "CloseWrite"
-    nodaemon    = true
-    maxProcesses= 8
+    logfile     = "/var/log/lsyncd/lsyncd.log",
+    statusFile  = "/var/log/lsyncd/lsyncd.status",
+    inotifyMode = "CloseWrite",
+    nodaemon    = false,
+    maxProcesses= 4,
 }
 sync {
-    source      = "/root/s1"
-    target      = "/root/s2"
-    rsync       = {
-        binary    = "/usr/bin/rsync",
-        archive = true,
-        compress = false,
-        verbose = true,
-
-    }
+    default.rsync,
+    source      = "/mnt/disk2/document",
+    target      = "/mnt/backup/document"
 }
+sync {
+    default.rsync,
+    source      = "/mnt/disk2/photo",
+    target      = "/mnt/backup/photo"
+}
+
 3. 开启运行
 systemctl enable lsyncd
