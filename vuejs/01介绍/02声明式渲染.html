@@ -3,22 +3,24 @@
 
 <head>
     <meta charset=utf-8>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
-    <div id=app>
+    <div id="bind-attribute">
         <span v-bind:title="message">
             鼠标悬停几秒钟查看此处东台绑定的提示信息
         </span>
     </div>
     <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: '页面加载于：' + new Date().toLocaleString()
+        const AttributeBinding = {
+            data(){
+                return {
+                    message: 'You loaded the page on ' + new Date().toLocaleString()
+                }
             }
-        })
+        }
+        Vue.createApp(AttributeBinding).mount('#bind-attribute')
     </script>
 </body>
 
