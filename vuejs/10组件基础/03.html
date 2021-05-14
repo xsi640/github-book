@@ -3,35 +3,42 @@
 
 <head>
     <meta charset=utf-8>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
     <div id=app>
         <custom-input v-model="searchText"></custom-input>
-        <custom-input
-            v-bind:value="searchText"
-            v-on:input="searchText = $event"
-        ></custom-input>
         <p>{{searchText}}</p>
     </div>
     <script>
-        Vue.component('custom-input', {
-            props: ['value'],
+        const app = Vue.createApp({
+            data() {
+                return {
+                    searchText: ''
+                }
+            },
+        })
+
+        app.component('custom-input', {
+            props: ['modelValue'],
             data: function () {
                 return {}
             },
-            template: `<input
-                        v-bind:value="value"
-                        v-on:input="$emit('input', $event.target.value)">`
-        })
-
-        var app = new Vue({
-            el: '#app',
-            data: {
-                searchText: ''
+            template: `<input v-model="value">`,
+            computed: {
+                value: {
+                    get() {
+                        return this.modelValue
+                    },
+                    set(value) {
+                        this.$emit('update:modelValue', value)
+                    }
+                }
             }
         })
+
+        app.mount('#app')
     </script>
 </body>
 

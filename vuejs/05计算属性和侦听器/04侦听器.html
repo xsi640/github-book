@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
 </head>
@@ -12,16 +12,17 @@
     <div id="watch-example">
         <p>
             Ask a yes/no question:
-            <input v-model="question">  <!-- bing input 双向绑定 -->
+            <input v-model="question"> <!-- bing input 双向绑定 -->
         </p>
         <p>{{ answer }}</p>
     </div>
     <script>
-        var watchExampleVM = new Vue({
-            el: '#watch-example',
-            data: {
-                question: '',
-                answer: 'I cannot give you an answer until you ask a question!'
+        Vue.createApp({
+            data() {
+                return {
+                    question: '',
+                    answer: 'I cannot give you an answer until you ask a question!'
+                }
             },
             watch: {
                 // 如果 `question` 发生改变，这个函数就会运行
@@ -55,7 +56,7 @@
                         })
                 }
             }
-        })
+        }).mount('#watch-example')
     </script>
 </body>
 

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
@@ -11,20 +11,10 @@
         <button-counter v-for="button in buttons" :title="button.title" :key="button.id"></button-counter>
     </div>
     <script>
-        Vue.component('button-counter', {
-            props: ['title'],
-            data: function () {
+        const app = Vue.createApp({
+            data() {
                 return {
-                    count: 0
-                }
-            },
-            template: '<button v-on:click="count++">clicked me {{count}} {{title}}</button>'
-        })
-
-        var app = new Vue({
-            el: '#app',
-            data: {
-                buttons: [{
+                    buttons: [{
                         id: 1,
                         title: 'one'
                     },
@@ -36,9 +26,23 @@
                         id: 3,
                         title: 'three'
                     }
-                ]
-            }
+                    ]
+                }
+            },
         })
+        app.component('button-counter', {
+            props: ['title'],
+            data() {
+                return {
+                    count: 0
+                }
+            },
+            template: `
+                <button v-on:click="count++">
+                    clicked me {{count}} {{title}}
+                </button>`
+        })
+        app.mount('#app')
     </script>
 </body>
 

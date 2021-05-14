@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
@@ -53,30 +53,31 @@
         <p>{{multiSelected}}</p>
     </div>
     <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: '',
-                message0:'',
-                age:'',
-                checked: false,
-                checkedNames: [],
-                picked: '',
-                selected: '',
-                selected0: [],
-                options: [{
-                    text: 'one',
-                    value: 1
-                }, {
-                    text: 'two',
-                    value: 2
-                }, {
-                    text: 'three',
-                    value: 3
-                }],
-                multiSelected: ''
+        Vue.createApp({
+            data() {
+                return {
+                    message: '',
+                    message0: '',
+                    age: '',
+                    checked: false,
+                    checkedNames: [],
+                    picked: '',
+                    selected: '',
+                    selected0: [],
+                    options: [{
+                        text: 'one',
+                        value: 1
+                    }, {
+                        text: 'two',
+                        value: 2
+                    }, {
+                        text: 'three',
+                        value: 3
+                    }],
+                    multiSelected: ''
+                }
             }
-        })
+        }).mount('#app')
     </script>
 </body>
 

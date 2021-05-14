@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
@@ -12,18 +12,19 @@
         <button @click="greet('nihao', $event)">Greet</button>
     </div>
     <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                counter: 0
+        Vue.createApp({
+            data() {
+                return {
+                    counter: 0
+                }
             },
             methods: {
                 greet: function (name, e) {
-                    alert(name +' counter:' + this.counter);
+                    alert(name + ' counter:' + this.counter);
                     console.log(e);
                 }
             }
-        })
+        }).mount('#app')
     </script>
 </body>
 

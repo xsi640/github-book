@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
@@ -11,18 +11,14 @@
         <alert-box>asdaad</alert-box>
     </div>
     <script>
-        Vue.component('alert-box', {
+        const app = Vue.createApp({})
+        app.component('alert-box', {
             template: `<div class="demo-alert-box">
                             <strong>Error!</strong>
                             <slot></slot>
                         </div>`
         })
-
-        var app = new Vue({
-            el: '#app',
-            data: {
-            }
-        })
+        app.mount('#app')
     </script>
 </body>
 

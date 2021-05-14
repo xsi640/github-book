@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
@@ -20,23 +20,24 @@
         </ul>
     </div>
     <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                items: [{
+        Vue.createApp({
+            data() {
+                return {
+                    items: [{
                         message: 'Foo'
                     },
                     {
                         message: 'Bar'
                     }
-                ],
-                object: {
-                    title: 'How to do lists in Vue',
-                    author: 'Jane Doe',
-                    publishedAt: '2016-04-10'
+                    ],
+                    object: {
+                        title: 'How to do lists in Vue',
+                        author: 'Jane Doe',
+                        publishedAt: '2016-04-10'
+                    }
                 }
             }
-        })
+        }).mount('#app')
     </script>
 </body>
 

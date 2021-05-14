@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
@@ -17,15 +17,16 @@
         <p>{{newName}}</p>
     </div>
     <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: "Hello!!",
-                firstName: "Zhang",
-                lastName: "San",
-                fullName: "Zhang San",
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    message: "Hello!!",
+                    firstName: "Zhang",
+                    lastName: "San",
+                    fullName: "Zhang San",
+                }
             },
-            computed: { //计算属性
+            computed:{
                 reversedMessage: function () {
                     return this.message.split('').reverse().join('')
                 },
@@ -33,8 +34,8 @@
                     return this.firstName + ' ' + this.lastName
                 },
                 otherName: {    //计算属性的setter getter
-                    get: function(){},
-                    set: function(val){}
+                    get: function () { },
+                    set: function (val) { }
                 }
             },
             methods: {
@@ -45,7 +46,7 @@
                     this.firstName = 'li'
                 }
             },
-            watch: {
+            watch:{
                 firstName: function (val) {
                     this.fullName = val + ' ' + this.lastName;
                 },
@@ -53,10 +54,10 @@
                     this.fullName = this.firstName + ' ' + val;
                 }
             }
-        })
-        console.log(app.reversedMessage)
+        }).mount('#app')
+        console.log(vm.reversedMessage)
         app.message = 'Good'
-        console.log(app.reversedMessage)
+        console.log(vm.reversedMessage)
     </script>
 </body>
 

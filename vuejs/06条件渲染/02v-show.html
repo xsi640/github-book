@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <body>
@@ -13,12 +13,13 @@
         </div>
     </div>
     <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                value: 'A'
+        Vue.createApp({
+            data() {
+                return {
+                    value: 'A'
+                }
             }
-        })
+        }).mount('#app')
     </script>
 </body>
 
